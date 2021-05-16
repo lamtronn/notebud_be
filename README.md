@@ -1,2 +1,1 @@
-# NodeJS-MySQL-Tutorial
-# NodeJS-MySQL-Tutorial
+# Notebud - NodeJS and MySQL
