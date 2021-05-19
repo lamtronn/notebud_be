@@ -1,9 +1,12 @@
 module.exports = (sequelize, Sequelize) => {
-  const Journal = sequelize.define("journals", {
+  const Journal = sequelize.define("journal", {
     journal_id: {
       type: Sequelize.INTEGER,
       primaryKey: true,
       autoIncrement: true,
+    },
+    user_id: {
+      type: Sequelize.INTEGER,
     },
     prunning: {
       type: Sequelize.STRING,
