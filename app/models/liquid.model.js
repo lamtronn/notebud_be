@@ -1,17 +1,20 @@
 module.exports = (sequelize, Sequelize) => {
-  const Fertilizer = sequelize.define("fertilizer", {
-    fertilizer_id: {
+  const Liquid = sequelize.define("liquid", {
+    liquid_id: {
       type: Sequelize.UUID,
       primaryKey: true,
       // autoIncrement: true,
     },
-    journal_id: {
+    fertilizer_id: {
       type: Sequelize.UUID,
     },
-    compost_tea: {
+    name: {
       type: Sequelize.STRING,
+    },
+    volume: {
+      type: Sequelize.INTEGER,
     },
   });
 
-  return Fertilizer;
+  return Liquid;
 };

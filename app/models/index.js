@@ -26,6 +26,9 @@ db.journal = require("./journal.model.js")(sequelize, Sequelize);
 db.task = require("./task.model.js")(sequelize, Sequelize);
 db.water = require("./water.model.js")(sequelize, Sequelize);
 db.fertilizer = require("./fertilizer.model.js")(sequelize, Sequelize);
+db.liquid = require("./liquid.model.js")(sequelize, Sequelize);
+db.dry = require("./dry.model.js")(sequelize, Sequelize);
+db.ipm = require("./ipm.model.js")(sequelize, Sequelize);
 
 const User = db.user;
 const Role = db.role;
@@ -33,15 +36,20 @@ const Journal = db.journal;
 const Task = db.task;
 const Water = db.water;
 const Fertilizer = db.fertilizer;
+const Liquid = db.liquid;
+const Dry = db.dry;
+const IPM = db.ipm;
 
 User.hasMany(Journal, { foreignKey: "user_id" });
 Role.hasMany(User, { foreignKey: "role_id" });
 Journal.hasMany(Task, { foreignKey: "journal_id" });
-
+Journal.hasMany(IPM, { foreignKey: "journal_id" });
 Journal.hasOne(Water, { foreignKey: "journal_id", targetKey: "journal_id" });
 Water.belongsTo(Journal, { foreignKey: "journal_id", targetKey: "journal_id" });
-
 Journal.hasOne(Fertilizer, { foreignKey: "journal_id" });
 Fertilizer.belongsTo(Journal, { foreignKey: "journal_id" });
+Fertilizer.hasMany(Liquid, { foreignKey: "fertilizer_id" });
+Fertilizer.hasMany(Dry, { foreignKey: "fertilizer_id" });
+
 
 module.exports = db;

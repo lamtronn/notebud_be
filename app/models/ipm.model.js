@@ -1,6 +1,6 @@
 module.exports = (sequelize, Sequelize) => {
-  const Fertilizer = sequelize.define("fertilizer", {
-    fertilizer_id: {
+  const IPM = sequelize.define("ipm", {
+    ipm_id: {
       type: Sequelize.UUID,
       primaryKey: true,
       // autoIncrement: true,
@@ -8,10 +8,13 @@ module.exports = (sequelize, Sequelize) => {
     journal_id: {
       type: Sequelize.UUID,
     },
-    compost_tea: {
+    pest_name: {
+      type: Sequelize.STRING,
+    },
+    control_method: {
       type: Sequelize.STRING,
     },
   });
 
-  return Fertilizer;
+  return IPM;
 };

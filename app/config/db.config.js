@@ -1,8 +1,8 @@
 module.exports = {
     HOST: "localhost",
     USER: "root",
-    PASSWORD: "123456",
-    DB: "notebud_db",
+    PASSWORD: "123",
+    DB: "notebud",
     dialect: "mysql",
     pool: {
       max: 5,

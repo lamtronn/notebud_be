@@ -1,12 +1,12 @@
 module.exports = (sequelize, Sequelize) => {
   const Task = sequelize.define("task", {
     task_id: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.UUID,
       primaryKey: true,
-      autoIncrement: true,
+      // autoIncrement: true,UUIDUUID
     },
     journal_id: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.UUID,
     },
     task_type: {
       type: Sequelize.STRING,
